@@ -1,0 +1,9 @@
+.ResponsiveBarChartWrapper {
+  padding: 25px 15px;
+  background-color: #efefef;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ResponsiveBarChartContent {
+  height: 700px;
+}

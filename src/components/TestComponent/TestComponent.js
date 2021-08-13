@@ -42,7 +42,7 @@ const TestComponent = () => {
                 bottom: 5,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid />
               <XAxis dataKey="Year" />
               <YAxis />
               <Tooltip />
