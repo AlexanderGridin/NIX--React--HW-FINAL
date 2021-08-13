@@ -1,12 +1,14 @@
 import Logo from "../Logo/Logo";
 
+import styles from "./Header.module.css";
+
 const Header = () => {
   return (
-    <header>
-      <div>
+    <header className={styles.Header}>
+      <div className={styles.HeaderRow}>
         <Logo />
       </div>
-      <div></div>
+      <div className={styles.HeaderRow}></div>
     </header>
   );
 };
