@@ -34,7 +34,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Page title="Home Page">
+    <Page title="Population Info Gid - your gid into population info :)">
       {populationTotalData && (
         <ResponsiveBarChart
           title={chartTitle}

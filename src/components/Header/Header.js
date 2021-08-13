@@ -1,4 +1,5 @@
 import Logo from "../Logo/Logo";
+import Navigation from "../Navigation/Navigation";
 
 import styles from "./Header.module.css";
 
@@ -8,7 +9,9 @@ const Header = () => {
       <div className={styles.HeaderRow}>
         <Logo />
       </div>
-      <div className={styles.HeaderRow}></div>
+      <div className={styles.HeaderRow}>
+        <Navigation />
+      </div>
     </header>
   );
 };

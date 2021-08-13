@@ -6,8 +6,8 @@ const Page = ({ title, children }) => {
   return (
     <div className={styles.PageWrapper}>
       <Container>
-        <h1 className={styles.PageTitle}>{title}</h1>
-        <div className={styles.PageContent}>{children}</div>
+        {title && <h1 className={styles.PageTitle}>{title}</h1>}
+        {children && <div className={styles.PageContent}>{children}</div>}
       </Container>
     </div>
   );
