@@ -4,10 +4,10 @@ const NAVIGATION = [
     url: "/",
     exact: true,
   },
-  // {
-  //   title: "About",
-  //   url: "/about",
-  // },
+  {
+    title: "Population data by state",
+    url: "/population-data-by-state",
+  },
 ];
 
 export default NAVIGATION;

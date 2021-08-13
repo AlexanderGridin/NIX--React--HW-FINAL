@@ -23,7 +23,6 @@ const HomePage = () => {
   useEffect(() => {
     if (!populationTotalData) {
       getTotalPopultaionData().then((populationData) => {
-        console.log(populationTotalData);
         dispatch(
           setPopulationTotalData({
             populationTotalData: populationData.data.reverse(),

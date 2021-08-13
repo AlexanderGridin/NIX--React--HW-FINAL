@@ -5,7 +5,7 @@ export const getTotalPopultaionData = async () =>
     "https://datausa.io/api/data?drilldowns=Year&measures=Population"
   );
 
-export const getPopulationDataInStates = async () =>
+export const getStatesPopulationData = async () =>
   await getJSONDataFromApi(
     "https://datausa.io/api/data?drilldowns=State&measures=Population"
   );

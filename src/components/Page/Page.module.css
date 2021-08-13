@@ -1,8 +1,13 @@
 .PageWrapper {
   padding: 35px 0 75px;
+  min-height: 100vh;
 }
 
 .PageTitle {
-  margin: 0 0 25px;
+  margin: 0 0 55px;
   line-height: 1.3;
+}
+
+.PageContentRow + .PageContentRow {
+  margin-top: 35px;
 }
