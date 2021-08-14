@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setSelectedState } from "../../store/populationSlice";
@@ -9,37 +9,38 @@ const SelectStateForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
 
   const states = useSelector((state) => state.populationData.states);
-  const selectedState = useSelector(
+  const selectedStateFromStore = useSelector(
     (state) => state.populationData.selectedState
   );
+  const [selectedUSAState, setSelectedUSAState] = useState("");
 
   useEffect(() => {
-    states &&
-      !selectedState &&
-      dispatch(setSelectedState({ selectedState: states[0].name }));
-  }, [states]);
+    states && !selectedStateFromStore && setSelectedUSAState(states[0].name);
 
-  const handleSelectChange = (state) => {
-    dispatch(setSelectedState({ selectedState: state }));
-  };
+    states &&
+      selectedStateFromStore &&
+      setSelectedUSAState(selectedStateFromStore);
+  }, [states]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onSubmit(selectedState);
+    dispatch(setSelectedState({ selectedUSAState }));
+
+    onSubmit(selectedUSAState);
   };
 
   return (
     <form action="#" onSubmit={handleSubmit}>
       {states && (
         <Select
-          value={selectedState}
+          value={selectedUSAState}
           label="Select state"
           id="select-state"
           options={states}
           fieldForOptionValue="name"
           fieldForOptionText="name"
-          onChange={handleSelectChange}
+          onChange={setSelectedUSAState}
         />
       )}
 

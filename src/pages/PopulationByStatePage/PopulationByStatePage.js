@@ -12,7 +12,6 @@ import {
 
 import Page from "../../components/Page/Page";
 import SelectStateForm from "../../components/SelectStateForm/SelectStateForm";
-
 import ResponsiveBarChart from "../../components/ResponsiveBarChart/ResponsiveBarChart";
 
 const PopulationByStatePage = () => {
@@ -29,6 +28,8 @@ const PopulationByStatePage = () => {
   const [populationDataOfSelectedState, setPopulationDataOfSelectedState] =
     useState(null);
 
+  const [chartTitle, setChartTitle] = useState("");
+
   const handleSelectStateFormSubmit = (state) => {
     dispatch(setSelectedState({ selectedState: state }));
 
@@ -38,15 +39,15 @@ const PopulationByStatePage = () => {
 
     setPopulationDataOfSelectedState(populationDataOfSelectedState);
     console.log(populationDataOfSelectedState);
-  };
 
-  const chartTitle =
-    populationDataOfSelectedState &&
-    `Population of ${populationDataOfSelectedState[0].State} from ${
-      populationDataOfSelectedState[0].Year
-    } year till ${
-      statesPopulationData[populationDataOfSelectedState.length - 1].Year
-    } year`;
+    setChartTitle(
+      `Population of ${state} from ${
+        populationDataOfSelectedState[0].Year
+      } year till ${
+        statesPopulationData[populationDataOfSelectedState.length - 1].Year
+      } year`
+    );
+  };
 
   const reuploadStatesPopulationData = () => {
     getStatesPopulationData().then((responseFromApi) => {
@@ -82,6 +83,13 @@ const PopulationByStatePage = () => {
         .reverse();
 
       setPopulationDataOfSelectedState(populationDataOfSelectedState);
+      setChartTitle(
+        `Population of ${selectedState} from ${
+          populationDataOfSelectedState[0].Year
+        } year till ${
+          statesPopulationData[populationDataOfSelectedState.length - 1].Year
+        } year`
+      );
     }
   }, []);
 

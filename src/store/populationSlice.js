@@ -4,8 +4,9 @@ const initialState = {
   populationTotalData: null,
   statesPopulationData: null,
   states: null,
-  selectedState: "",
   years: null,
+  selectedState: "",
+  selectedYear: "",
 };
 
 const populationSlice = createSlice({
@@ -24,12 +25,16 @@ const populationSlice = createSlice({
       state.states = action.payload.states;
     },
 
+    setYears(state, action) {
+      state.years = action.payload.years;
+    },
+
     setSelectedState(state, action) {
       state.selectedState = action.payload.selectedState;
     },
 
-    setYears(state, action) {
-      state.years = action.payload.years;
+    setSelectedYear(state, action) {
+      state.selectedYear = action.payload.selectedYear;
     },
   },
 });
@@ -38,7 +43,8 @@ export const {
   setPopulationTotalData,
   setStatesPopulationData,
   setStates,
-  setSelectedState,
   setYears,
+  setSelectedState,
+  setSelectedYear,
 } = populationSlice.actions;
 export default populationSlice.reducer;
