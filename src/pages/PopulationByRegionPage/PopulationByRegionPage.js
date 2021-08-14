@@ -32,7 +32,6 @@ const PopulationByRegionPage = () => {
   const [chartTitle, setChartTitle] = useState("");
 
   const handleSelectRegionFormSubmit = (selectedRegion) => {
-    console.log(selectedRegion);
     dispatch(setSelectedRegion({ selectedRegion }));
 
     const populationDataOfSelectedRegion = populationDataOfRegions
