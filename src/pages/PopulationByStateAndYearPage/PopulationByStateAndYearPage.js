@@ -14,6 +14,7 @@ import {
 import Page from "../../components/Page/Page";
 import SelectStateAndYearForm from "../../components/SelectStateAndYearForm/SelectStateAndYearForm";
 import ResponsiveBarChart from "../../components/ResponsiveBarChart/ResponsiveBarChart";
+import Notification from "../../components/Notification/Notification";
 
 const PopulationByStateAndYearPage = () => {
   const dispatch = useDispatch();
@@ -113,6 +114,30 @@ const PopulationByStateAndYearPage = () => {
           XAxisDataKey="Year"
           barDataKey="Population"
         />
+      )}
+
+      {selectedState && !selectedYear && (
+        <Notification>
+          <p>
+            We remember, that your select state <strong>{selectedState}</strong>{" "}
+            on page <strong>"See population info by selected state"</strong>.{" "}
+            <br />
+            Now you need to select <strong>year</strong> and press{" "}
+            <strong>"Get info"</strong>
+            button to see diagram. <br /> Or you can select another{" "}
+            <strong>state</strong>, select <strong>year</strong> and press{" "}
+            <strong>"Get info"</strong> button to see diagram.
+          </p>
+        </Notification>
+      )}
+
+      {!selectedState && !selectedYear && (
+        <Notification>
+          <p>
+            Please, select <strong>state</strong>, <strong>year</strong> and
+            press <strong>"Get info"</strong> button to see diagram...
+          </p>
+        </Notification>
       )}
     </Page>
   );

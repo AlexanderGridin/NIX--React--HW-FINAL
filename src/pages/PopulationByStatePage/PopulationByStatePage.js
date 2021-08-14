@@ -13,6 +13,7 @@ import {
 import Page from "../../components/Page/Page";
 import SelectStateForm from "../../components/SelectStateForm/SelectStateForm";
 import ResponsiveBarChart from "../../components/ResponsiveBarChart/ResponsiveBarChart";
+import Notification from "../../components/Notification/Notification";
 
 const PopulationByStatePage = () => {
   const dispatch = useDispatch();
@@ -104,6 +105,15 @@ const PopulationByStatePage = () => {
           XAxisDataKey="Year"
           barDataKey="Population"
         />
+      )}
+
+      {!populationDataOfSelectedState && (
+        <Notification>
+          <p>
+            Please, select <strong>state</strong> and press{" "}
+            <strong>"Get info"</strong> button to see diagram...
+          </p>
+        </Notification>
       )}
     </Page>
   );

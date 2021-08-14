@@ -3,3 +3,13 @@
   font-size: 2rem;
   line-height: 1;
 }
+
+.LogoLink:link,
+.LogoLink:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.LogoLink:hover {
+  text-decoration: underline;
+}
