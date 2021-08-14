@@ -38,7 +38,7 @@ const SelectStateAndYearForm = ({ onSubmit }) => {
     years &&
       selectedYearFromStore &&
       setSelectedFromFormYear(selectedYearFromStore);
-  }, []);
+  }, [states, years]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
