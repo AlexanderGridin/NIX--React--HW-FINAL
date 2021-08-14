@@ -39,7 +39,6 @@ const PopulationByStatePage = () => {
       .reverse();
 
     setPopulationDataOfSelectedState(populationDataOfSelectedState);
-    console.log(populationDataOfSelectedState);
 
     setChartTitle(
       `Population of ${state} from ${

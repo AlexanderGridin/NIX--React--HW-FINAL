@@ -39,7 +39,6 @@ const PopulationByStateAndYearPage = () => {
   const [chartTitle, setChartTitle] = useState("");
 
   const handleSelectStateAndYearFormSubmit = (selectedState, selectedYear) => {
-    console.log(selectedState, selectedYear);
     dispatch(setSelectedState({ selectedState }));
     dispatch(setSelectedYear({ selectedYear }));
 
@@ -98,8 +97,6 @@ const PopulationByStateAndYearPage = () => {
       );
 
       setChartTitle(`Population of ${selectedState} in ${selectedYear} year`);
-
-      console.log(populationDataOfSelectedStateInSelectedYear);
     }
   }, []);
 
