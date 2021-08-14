@@ -1,9 +1,9 @@
-.SelectStateAndYearForm {
+.SelectStateForm {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.SelectStateAndYearFormItem + .SelectStateAndYearFormItem {
+.SelectStateFormItem + .SelectStateFormItem {
   margin-left: 10px;
 }

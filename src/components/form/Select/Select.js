@@ -10,8 +10,12 @@ const Select = ({
   onChange,
 }) => {
   return (
-    <>
-      {label && <label htmlFor={id}>{label}</label>}
+    <div className={styles.SelectWrapper}>
+      {label && (
+        <label className={styles.SelectLabel} htmlFor={id}>
+          {label}
+        </label>
+      )}
 
       <select
         className={styles.Select}
@@ -29,7 +33,7 @@ const Select = ({
           );
         })}
       </select>
-    </>
+    </div>
   );
 };
 

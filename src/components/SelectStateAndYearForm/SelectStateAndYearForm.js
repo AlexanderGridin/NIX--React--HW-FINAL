@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { setSelectedState, setSelectedYear } from "../../store/populationSlice";
 
 import Select from "../../components/form/Select/Select";
+import SubmitButton from "../form/SubmitButton/SubmitButton";
 import { useState } from "react";
+
+import styles from "./SelectStateAndYearForm.module.css";
 
 const SelectStateAndYearForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
@@ -47,32 +50,40 @@ const SelectStateAndYearForm = ({ onSubmit }) => {
   };
 
   return (
-    <form action="#" onSubmit={handleSubmit}>
-      {states && (
-        <Select
-          value={selectedFromFormState}
-          label="Select state"
-          id="select-state"
-          options={states}
-          fieldForOptionValue="name"
-          fieldForOptionText="name"
-          onChange={setSelectedFromFormState}
-        />
-      )}
-
-      {years && (
-        <Select
-          value={selectedFromFormYear}
-          label="Select year"
-          id="select-year"
-          options={years}
-          fieldForOptionValue="year"
-          fieldForOptionText="year"
-          onChange={setSelectedFromFormYear}
-        />
-      )}
-
-      <button type="submit">Get info</button>
+    <form
+      className={styles.SelectStateAndYearForm}
+      action="#"
+      onSubmit={handleSubmit}
+    >
+      <div className={styles.SelectStateAndYearFormItem}>
+        {states && (
+          <Select
+            value={selectedFromFormState}
+            label="Select state"
+            id="select-state"
+            options={states}
+            fieldForOptionValue="name"
+            fieldForOptionText="name"
+            onChange={setSelectedFromFormState}
+          />
+        )}
+      </div>
+      <div className={styles.SelectStateAndYearFormItem}>
+        {years && (
+          <Select
+            value={selectedFromFormYear}
+            label="Select year"
+            id="select-year"
+            options={years}
+            fieldForOptionValue="year"
+            fieldForOptionText="year"
+            onChange={setSelectedFromFormYear}
+          />
+        )}
+      </div>
+      <div className={styles.SelectStateAndYearFormItem}>
+        <SubmitButton>Get info</SubmitButton>
+      </div>
     </form>
   );
 };

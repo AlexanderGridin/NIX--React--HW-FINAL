@@ -5,7 +5,7 @@ import styles from "./Logo.module.css";
 const Logo = () => {
   return (
     <div className={styles.Logo}>
-      <Link className={styles.LogoLink} to="/" exact={true}>
+      <Link className={styles.LogoLink} to="/" exact="true">
         Population info gid
       </Link>
     </div>

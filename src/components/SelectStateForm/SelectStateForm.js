@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setSelectedState } from "../../store/populationSlice";
 
 import Select from "../../components/form/Select/Select";
+import SubmitButton from "../form/SubmitButton/SubmitButton";
+import styles from "./SelectStateForm.module.css";
 
 const SelectStateForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
@@ -31,20 +33,24 @@ const SelectStateForm = ({ onSubmit }) => {
   };
 
   return (
-    <form action="#" onSubmit={handleSubmit}>
-      {states && (
-        <Select
-          value={selectedUSAState}
-          label="Select state"
-          id="select-state"
-          options={states}
-          fieldForOptionValue="name"
-          fieldForOptionText="name"
-          onChange={setSelectedUSAState}
-        />
-      )}
+    <form className={styles.SelectStateForm} action="#" onSubmit={handleSubmit}>
+      <div className={styles.SelectStateFormItem}>
+        {states && (
+          <Select
+            value={selectedUSAState}
+            label="Select state"
+            id="select-state"
+            options={states}
+            fieldForOptionValue="name"
+            fieldForOptionText="name"
+            onChange={setSelectedUSAState}
+          />
+        )}
+      </div>
 
-      <button type="submit">Get info</button>
+      <div className={styles.SelectStateFormItem}>
+        <SubmitButton>Get info</SubmitButton>
+      </div>
     </form>
   );
 };
