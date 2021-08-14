@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { getPopulationDataOfRegionsFromDatausaIoApi } from "../../lib/datausaIoApi";
-import getRegionsAndYearsFromPopulationDataOfRegions from "../../lib/getRegionsAndYearsFromPopulationDataOfRegions";
 import {
   setPopulationDataOfRegions,
   setRegions,
@@ -10,6 +7,9 @@ import {
   setSelectedRegion,
   setSelectedYear,
 } from "../../store/populationSlice";
+
+import { getPopulationDataOfRegionsFromDatausaIoApi } from "../../lib/datausaIoApi";
+import getRegionsAndYearsFromPopulationDataOfRegions from "../../lib/getRegionsAndYearsFromPopulationDataOfRegions";
 
 import Page from "../../components/Page/Page";
 import SelectRegionAndYearForm from "../../components/SelectRegionAndYearForm/SelectRegionAndYearForm";
@@ -32,8 +32,8 @@ const PopulationByRegionAndYearPage = () => {
   );
 
   const [
-    populationDataOfSelectedRegionInSelectedYear,
-    setPopulationDataOfSelectedRegionInSelectedYear,
+    populationDataOfSelectedRegionOfSelectedYear,
+    setPopulationDataOfSelectedRegionOfSelectedYear,
   ] = useState(null);
 
   const [chartTitle, setChartTitle] = useState("");
@@ -45,15 +45,15 @@ const PopulationByRegionAndYearPage = () => {
     dispatch(setSelectedRegion({ selectedRegion }));
     dispatch(setSelectedYear({ selectedYear }));
 
-    const populationDataOfSelectedRegionInSelectedYear =
+    const populationDataOfSelectedRegionOfSelectedYear =
       populationDataOfRegions.filter(
         (regionDataFromState) =>
           regionDataFromState.State === selectedRegion &&
           regionDataFromState.Year === selectedYear
       );
 
-    setPopulationDataOfSelectedRegionInSelectedYear(
-      populationDataOfSelectedRegionInSelectedYear
+    setPopulationDataOfSelectedRegionOfSelectedYear(
+      populationDataOfSelectedRegionOfSelectedYear
     );
 
     setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
@@ -88,15 +88,15 @@ const PopulationByRegionAndYearPage = () => {
     }
 
     if (selectedRegion && selectedYear) {
-      const populationDataOfSelectedRegionInSelectedYear =
+      const populationDataOfSelectedRegionOfSelectedYear =
         populationDataOfRegions.filter(
           (regionDataFromState) =>
             regionDataFromState.State === selectedRegion &&
             regionDataFromState.Year === selectedYear
         );
 
-      setPopulationDataOfSelectedRegionInSelectedYear(
-        populationDataOfSelectedRegionInSelectedYear
+      setPopulationDataOfSelectedRegionOfSelectedYear(
+        populationDataOfSelectedRegionOfSelectedYear
       );
 
       setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
@@ -107,10 +107,10 @@ const PopulationByRegionAndYearPage = () => {
     <Page title="See population info by selected state">
       <SelectRegionAndYearForm onSubmit={handleSelectRegionAndYearFormSubmit} />
 
-      {populationDataOfSelectedRegionInSelectedYear && (
+      {populationDataOfSelectedRegionOfSelectedYear && (
         <ResponsiveBarChart
           title={chartTitle}
-          data={populationDataOfSelectedRegionInSelectedYear}
+          data={populationDataOfSelectedRegionOfSelectedYear}
           XAxisDataKey="Year"
           barDataKey="Population"
         />

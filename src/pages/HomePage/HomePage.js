@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { setPopulationTotalData } from "../../store/populationSlice";
 
 import { getTotalPopultaionDataFromDatausaIoApi } from "../../lib/datausaIoApi";
-import { setPopulationTotalData } from "../../store/populationSlice";
 
 import Page from "../../components/Page/Page";
 import ResponsiveBarChart from "../../components/ResponsiveBarChart/ResponsiveBarChart";
