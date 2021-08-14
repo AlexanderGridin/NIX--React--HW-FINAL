@@ -1,7 +1,7 @@
 .Header {
   background-color: #4a8af4;
-  padding: 20px 0 10px;
   color: #fff;
+  padding: 20px 0 10px;
 }
 
 .HeaderRow + .HeaderRow {

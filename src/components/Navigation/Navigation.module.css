@@ -3,23 +3,23 @@
 }
 
 .navList {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .navLink {
+  color: #fff;
+  display: inline-block;
+  line-height: 1;
   padding: 15px 25px;
   position: relative;
-  z-index: 2;
-  line-height: 1;
-  display: inline-block;
-  color: #fff;
   text-decoration: none;
   transition: 0.4s;
+  z-index: 2;
 }
 
 .navLink.active,
@@ -28,14 +28,14 @@
 }
 
 .navLink::before {
+  background-color: #fff;
+  bottom: 0;
   content: "";
   display: block;
+  height: 0;
+  left: 0;
   position: absolute;
   right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #fff;
-  height: 0;
   transition: 0.4s;
   z-index: -1;
 }

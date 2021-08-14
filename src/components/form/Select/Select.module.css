@@ -1,31 +1,29 @@
 .SelectWrapper {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .SelectLabel {
-  font-weight: bold;
   display: inline-block;
-  margin-right: 7px;
   flex-shrink: 0;
+  font-weight: bold;
+  margin-right: 7px;
 }
 
 .Select {
-  display: inline-block;
-  width: 200px;
-  height: 35px;
-  font-size: 1rem;
-  padding: 0 10px;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  transition: 0.4s;
-
   appearance: none;
   background-image: url(https://image.flaticon.com/icons/png/512/143/143271.png);
-  background-position: center;
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 16px 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  display: inline-block;
+  font-size: 1rem;
+  height: 35px;
+  padding: 0 10px;
+  transition: 0.4s;
+  width: 200px;
 }
 
 .Select:hover,

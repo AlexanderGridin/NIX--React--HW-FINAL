@@ -1,6 +1,6 @@
 import styles from "./Notification.module.css";
 
-const Notification = ({ text, children }) => {
+const Notification = ({ children }) => {
   return <div className={styles.Notification}>{children}</div>;
 };
 

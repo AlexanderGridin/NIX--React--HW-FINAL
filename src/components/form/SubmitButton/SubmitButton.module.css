@@ -1,14 +1,14 @@
 .SubmitButton {
-  padding: 8px 20px;
+  background-color: #4a8af4;
   border-radius: 5px;
   border: 2px solid #4a8af4;
-  background-color: #4a8af4;
   color: #fff;
+  padding: 8px 20px;
   transition: 0.4s;
 }
 
 .SubmitButton:hover {
-  cursor: pointer;
   background-color: #fff;
   color: #4a8af4;
+  cursor: pointer;
 }

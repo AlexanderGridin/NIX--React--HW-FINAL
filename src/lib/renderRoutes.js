@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-export default function renderRoutes(routes) {
+const renderRoutes = (routes) => {
   return routes.map((route, i) => {
     if (route.routes && route.routes.length > 0) {
       return [
@@ -23,4 +23,6 @@ export default function renderRoutes(routes) {
       ></Route>
     );
   });
-}
+};
+
+export default renderRoutes;

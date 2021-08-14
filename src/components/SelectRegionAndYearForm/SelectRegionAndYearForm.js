@@ -40,6 +40,7 @@ const SelectRegionAndYearForm = ({ onSubmit }) => {
     years &&
       !selectedYearInGlobalState &&
       setSelectedYearInLocalState(years[0].year);
+
     years &&
       selectedYearInGlobalState &&
       setSelectedYearInLocalState(selectedYearInGlobalState);
@@ -73,6 +74,7 @@ const SelectRegionAndYearForm = ({ onSubmit }) => {
           />
         )}
       </div>
+
       <div className={styles.SelectRegionAndYearFormItem}>
         {years && (
           <Select
@@ -86,6 +88,7 @@ const SelectRegionAndYearForm = ({ onSubmit }) => {
           />
         )}
       </div>
+
       <div className={styles.SelectRegionAndYearFormItem}>
         <SubmitButton>Get info</SubmitButton>
       </div>
