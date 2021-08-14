@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getTotalPopultaionData } from "../../lib/datausaIoApi";
+import { getTotalPopultaionDataFromDatausaIoApi } from "../../lib/datausaIoApi";
 import { setPopulationTotalData } from "../../store/populationSlice";
 
 import Page from "../../components/Page/Page";
@@ -22,7 +22,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (!populationTotalData) {
-      getTotalPopultaionData().then((populationData) => {
+      getTotalPopultaionDataFromDatausaIoApi().then((populationData) => {
         dispatch(
           setPopulationTotalData({
             populationTotalData: populationData.data.reverse(),

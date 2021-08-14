@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getRegionsPopulationData } from "../../lib/datausaIoApi";
+import { getPopulationDataOfRegionsFromDatausaIoApi } from "../../lib/datausaIoApi";
 import getRegionsAndYearsFromPopulationDataOfRegions from "../../lib/getRegionsAndYearsFromPopulationDataOfRegions";
 import {
   setPopulationDataOfRegions,
@@ -54,7 +54,7 @@ const PopulationByRegionPage = () => {
   };
 
   const reloadPopulationDataOfRegions = () => {
-    getRegionsPopulationData().then((responseFromApi) => {
+    getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
       const populationDataOfRegionsFromApi = responseFromApi.data;
       const regionsAndYears = getRegionsAndYearsFromPopulationDataOfRegions(
         populationDataOfRegionsFromApi
