@@ -1,0 +1,46 @@
+.nav {
+  margin-bottom: -10px;
+}
+
+.navList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLink {
+  padding: 15px 25px;
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.navLink.active,
+.navLink:hover {
+  color: #4a8af4;
+}
+
+.navLink::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  height: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+
+.navLink.active::before,
+.navLink:hover::before {
+  height: 100%;
+}
