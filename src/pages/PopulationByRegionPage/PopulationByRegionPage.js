@@ -31,51 +31,6 @@ const PopulationByRegionPage = () => {
 
   const [chartTitle, setChartTitle] = useState("");
 
-  const handleSelectRegionFormSubmit = (selectedRegion) => {
-    dispatch(setSelectedRegion({ selectedRegion }));
-
-    const populationDataOfSelectedRegion = populationDataOfRegions
-      .filter(
-        (regionDataFromState) => regionDataFromState.State === selectedRegion
-      )
-      .reverse();
-
-    setPopulationDataOfSelectedRegion(populationDataOfSelectedRegion);
-
-    setChartTitle(
-      `Population of ${selectedRegion} from ${
-        populationDataOfSelectedRegion[0].Year
-      } year till ${
-        populationDataOfSelectedRegion[
-          populationDataOfSelectedRegion.length - 1
-        ].Year
-      } year`
-    );
-  };
-
-  const loadPopulationDataOfRegions = () => {
-    getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
-      const populationDataOfRegionsFromApi = responseFromApi.data;
-      const regionsAndYears = getRegionsAndYearsFromPopulationDataOfRegions(
-        populationDataOfRegionsFromApi
-      );
-
-      dispatch(
-        setPopulationDataOfRegions({
-          populationDataOfRegions: populationDataOfRegionsFromApi,
-        })
-      );
-
-      dispatch(
-        setRegions({
-          regions: regionsAndYears.regions,
-        })
-      );
-
-      dispatch(setYears({ years: regionsAndYears.years }));
-    });
-  };
-
   useEffect(() => {
     if (!populationDataOfRegions) {
       loadPopulationDataOfRegions();
@@ -101,6 +56,51 @@ const PopulationByRegionPage = () => {
       );
     }
   }, []);
+
+  const loadPopulationDataOfRegions = () => {
+    getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
+      const populationDataOfRegionsFromApi = responseFromApi.data;
+      const regionsAndYears = getRegionsAndYearsFromPopulationDataOfRegions(
+        populationDataOfRegionsFromApi
+      );
+
+      dispatch(
+        setPopulationDataOfRegions({
+          populationDataOfRegions: populationDataOfRegionsFromApi,
+        })
+      );
+
+      dispatch(
+        setRegions({
+          regions: regionsAndYears.regions,
+        })
+      );
+
+      dispatch(setYears({ years: regionsAndYears.years }));
+    });
+  };
+
+  const handleSelectRegionFormSubmit = (selectedRegion) => {
+    dispatch(setSelectedRegion({ selectedRegion }));
+
+    const populationDataOfSelectedRegion = populationDataOfRegions
+      .filter(
+        (regionDataFromState) => regionDataFromState.State === selectedRegion
+      )
+      .reverse();
+
+    setPopulationDataOfSelectedRegion(populationDataOfSelectedRegion);
+
+    setChartTitle(
+      `Population of ${selectedRegion} from ${
+        populationDataOfSelectedRegion[0].Year
+      } year till ${
+        populationDataOfSelectedRegion[
+          populationDataOfSelectedRegion.length - 1
+        ].Year
+      } year`
+    );
+  };
 
   return (
     <Page title="See population info by selected state">

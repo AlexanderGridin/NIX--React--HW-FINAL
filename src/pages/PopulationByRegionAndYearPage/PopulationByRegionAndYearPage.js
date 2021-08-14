@@ -38,26 +38,26 @@ const PopulationByRegionAndYearPage = () => {
 
   const [chartTitle, setChartTitle] = useState("");
 
-  const handleSelectRegionAndYearFormSubmit = (
-    selectedRegion,
-    selectedYear
-  ) => {
-    dispatch(setSelectedRegion({ selectedRegion }));
-    dispatch(setSelectedYear({ selectedYear }));
+  useEffect(() => {
+    if (!populationDataOfRegions) {
+      loadPopulationDataOfRegions();
+    }
 
-    const populationDataOfSelectedRegionOfSelectedYear =
-      populationDataOfRegions.filter(
-        (regionDataFromState) =>
-          regionDataFromState.State === selectedRegion &&
-          regionDataFromState.Year === selectedYear
+    if (selectedRegion && selectedYear) {
+      const populationDataOfSelectedRegionOfSelectedYear =
+        populationDataOfRegions.filter(
+          (regionDataFromState) =>
+            regionDataFromState.State === selectedRegion &&
+            regionDataFromState.Year === selectedYear
+        );
+
+      setPopulationDataOfSelectedRegionOfSelectedYear(
+        populationDataOfSelectedRegionOfSelectedYear
       );
 
-    setPopulationDataOfSelectedRegionOfSelectedYear(
-      populationDataOfSelectedRegionOfSelectedYear
-    );
-
-    setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
-  };
+      setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
+    }
+  }, []);
 
   const loadPopulationDataOfRegions = () => {
     getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
@@ -82,26 +82,26 @@ const PopulationByRegionAndYearPage = () => {
     });
   };
 
-  useEffect(() => {
-    if (!populationDataOfRegions) {
-      loadPopulationDataOfRegions();
-    }
+  const handleSelectRegionAndYearFormSubmit = (
+    selectedRegion,
+    selectedYear
+  ) => {
+    dispatch(setSelectedRegion({ selectedRegion }));
+    dispatch(setSelectedYear({ selectedYear }));
 
-    if (selectedRegion && selectedYear) {
-      const populationDataOfSelectedRegionOfSelectedYear =
-        populationDataOfRegions.filter(
-          (regionDataFromState) =>
-            regionDataFromState.State === selectedRegion &&
-            regionDataFromState.Year === selectedYear
-        );
-
-      setPopulationDataOfSelectedRegionOfSelectedYear(
-        populationDataOfSelectedRegionOfSelectedYear
+    const populationDataOfSelectedRegionOfSelectedYear =
+      populationDataOfRegions.filter(
+        (regionDataFromState) =>
+          regionDataFromState.State === selectedRegion &&
+          regionDataFromState.Year === selectedYear
       );
 
-      setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
-    }
-  }, []);
+    setPopulationDataOfSelectedRegionOfSelectedYear(
+      populationDataOfSelectedRegionOfSelectedYear
+    );
+
+    setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
+  };
 
   return (
     <Page title="See population info by selected state">
