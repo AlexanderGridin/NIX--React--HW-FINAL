@@ -59,7 +59,7 @@ const PopulationByRegionAndYearPage = () => {
     setChartTitle(`Population of ${selectedRegion} in ${selectedYear} year`);
   };
 
-  const reloadPopulationDataOfRegions = () => {
+  const loadPopulationDataOfRegions = () => {
     getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
       const populationDataOfRegionsFromApi = responseFromApi.data;
       const regionsAndYears = getRegionsAndYearsFromPopulationDataOfRegions(
@@ -84,7 +84,7 @@ const PopulationByRegionAndYearPage = () => {
 
   useEffect(() => {
     if (!populationDataOfRegions) {
-      reloadPopulationDataOfRegions();
+      loadPopulationDataOfRegions();
     }
 
     if (selectedRegion && selectedYear) {

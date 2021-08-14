@@ -53,7 +53,7 @@ const PopulationByRegionPage = () => {
     );
   };
 
-  const reloadPopulationDataOfRegions = () => {
+  const loadPopulationDataOfRegions = () => {
     getPopulationDataOfRegionsFromDatausaIoApi().then((responseFromApi) => {
       const populationDataOfRegionsFromApi = responseFromApi.data;
       const regionsAndYears = getRegionsAndYearsFromPopulationDataOfRegions(
@@ -78,7 +78,7 @@ const PopulationByRegionPage = () => {
 
   useEffect(() => {
     if (!populationDataOfRegions) {
-      reloadPopulationDataOfRegions();
+      loadPopulationDataOfRegions();
     }
 
     if (selectedRegion) {
