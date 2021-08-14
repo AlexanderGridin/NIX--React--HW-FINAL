@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   populationTotalData: null,
-  statesPopulationData: null,
-  states: null,
+  populationDataOfRegions: null,
+
+  regions: null,
   years: null,
-  selectedState: "",
+
+  selectedRegion: "",
   selectedYear: "",
 };
 
@@ -17,20 +19,20 @@ const populationSlice = createSlice({
       state.populationTotalData = action.payload.populationTotalData;
     },
 
-    setStatesPopulationData(state, action) {
-      state.statesPopulationData = action.payload.statesPopulationData;
+    setPopulationDataOfRegions(state, action) {
+      state.populationDataOfRegions = action.payload.populationDataOfRegions;
     },
 
-    setStates(state, action) {
-      state.states = action.payload.states;
+    setRegions(state, action) {
+      state.regions = action.payload.regions;
     },
 
     setYears(state, action) {
       state.years = action.payload.years;
     },
 
-    setSelectedState(state, action) {
-      state.selectedState = action.payload.selectedState;
+    setSelectedRegion(state, action) {
+      state.selectedRegion = action.payload.selectedRegion;
     },
 
     setSelectedYear(state, action) {
@@ -41,10 +43,12 @@ const populationSlice = createSlice({
 
 export const {
   setPopulationTotalData,
-  setStatesPopulationData,
-  setStates,
+  setPopulationDataOfRegions,
+
+  setRegions,
   setYears,
-  setSelectedState,
+
+  setSelectedRegion,
   setSelectedYear,
 } = populationSlice.actions;
 export default populationSlice.reducer;

@@ -1,10 +1,10 @@
-.SelectStateForm {
+.SelectRegionForm {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 35px;
 }
 
-.SelectStateFormItem + .SelectStateFormItem {
+.SelectRegionFormItem + .SelectRegionFormItem {
   margin-left: 10px;
 }
